@@ -78,4 +78,22 @@ int Grafo::calcula_grau(int v){
     }
     return grau;
 }
-
+bool Grafo::tem_caminho(int v, int w, int marcado[],int num_chamadas) {
+ for (int i = 0; i < num_chamadas; i++){
+ cout<<" ";
+ }
+ cout <<"Caminho ("<<v<<w<<")"<<'\n';
+ if (v == w) {
+ printf("%d-", v);
+ return true;
+ }
+ marcado[v] = 1;
+ for (int u = 0; u < num_vertices_; u++)
+ if (matriz_adj_[v][u] != 0)
+ if (marcado[u] == 0)
+ if (tem_caminho(u, w, marcado,num_chamadas+1)) {
+ printf("%d-", v);
+ return true;
+ }
+ return false;
+}
