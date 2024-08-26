@@ -69,3 +69,13 @@ void Grafo::imprime_grafo(){
     }    
 }
 
+int Grafo::calcula_grau(int v){
+    int grau=0;
+    for(int i=0; i<num_vertices_; i++){
+        if(matriz_adj_[v][i]!=0){
+            grau++;
+        }
+    }
+    return grau;
+}
+
