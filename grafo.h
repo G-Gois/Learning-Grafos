@@ -14,9 +14,11 @@ public:
     void imprime_grafo();
     int calcula_grau(int v);
     bool tem_caminho(int v, int w, int marcado[],int num_chamadas);
+    bool is_conexo();
 private:
     int num_vertices_;
     int num_arestas_;
     std::vector<std::vector<int>> matriz_adj_;  
+    std::vector<int> lista_adj_;
 };
 #endif
