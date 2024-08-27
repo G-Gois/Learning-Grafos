@@ -78,6 +78,8 @@ int Grafo::calcula_grau(int v){
     }
     return grau;
 }
+
+//REVER
 bool Grafo::tem_caminho(int v, int w, int marcado[],int num_chamadas) {
  for (int i = 0; i < num_chamadas; i++){
  cout<<" ";
@@ -96,4 +98,23 @@ bool Grafo::tem_caminho(int v, int w, int marcado[],int num_chamadas) {
  return true;
  }
  return false;
+}
+
+bool Grafo::is_conexo(){
+//Inicialização do vetor Marcado
+int marcado[num_vertices_];
+for (int i = 0; i < num_vertices_; i++)
+{
+    marcado[i]=0;
+}
+
+for(int i=0; i<num_vertices_; i++){
+    for(int j=i+1;j<num_vertices_;j++){
+        if(!tem_caminho(i,j,marcado,0)){
+            return false;
+        }   
+    }
+return true;
+}
+
 }
